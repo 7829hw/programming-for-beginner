@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#pragma warning(disable : 4996)
 
 #define MAXSIZE 500
 
@@ -9,11 +8,11 @@ int main(void)
 {
     int data[MAXSIZE];
     int size;
-    int max = 0; // ¹è¿­ÀÇ ÃÖ´ñ°ª  
-    double max_ratio = 0; // È÷½ºÅä±×·¥ ºñÀ²ÀÇ ÃÖ´ñ°ª
+    int max = 0; // ë°°ì—´ì˜ ìµœëŒ“ê°’  
+    double max_ratio = 0; // íˆìŠ¤í† ê·¸ë¨ ë¹„ìœ¨ì˜ ìµœëŒ“ê°’
 
     while (1) {
-        printf("\nµ¥ÀÌÅÍÀÇ °³¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À (0: Á¾·á, 30 <= x <= 500): ");
+        printf("\në°ì´í„°ì˜ ê°œìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œì˜¤ (0: ì¢…ë£Œ, 30 <= x <= 500): ");
         scanf("%d", &size);
         if (size == 0) break;
         if (size < 30) continue;
@@ -23,33 +22,33 @@ int main(void)
         for (int i = 0; i < size; i++)
             data[i] = rand() % 10;
 
-        puts("\t[¿ø ·£´ı µ¥ÀÌÅÍ]");
+        puts("\t[ì› ëœë¤ ë°ì´í„°]");
         for (int i = 0; i < size; i++) {
             printf("%5d", data[i]);
             if (i % 10 == 9) puts("");
         }
         puts("");
 
-        // È÷½ºÅä±×·¥ °è»ê
+        // íˆìŠ¤í† ê·¸ë¨ ê³„ì‚°
         int histo[10] = { 0 };
         for (int i = 0; i < size; i++)
             histo[data[i]]++;
 
-        // È÷½ºÅä±×·¥ ÃÖ´ñ°ª °è»ê
+        // íˆìŠ¤í† ê·¸ë¨ ìµœëŒ“ê°’ ê³„ì‚°
         max = histo[0];
         for (int i = 0; i < 10; i++) {
             if (histo[i] > max)
                 max = histo[i];
         }
 
-        // È÷½ºÅä±×·¥ Ãâ·Â
-        puts("\t[È÷½ºÅä±×·¥]");
+        // íˆìŠ¤í† ê·¸ë¨ ì¶œë ¥
+        puts("\t[íˆìŠ¤í† ê·¸ë¨]");
         for (int j = 0; j < 10; j++)
             printf("%5d | %d\n", j, histo[j]);
 
         puts("");
-        // È÷½ºÅä±×·¥ v1.0 Ãâ·Â
-        puts("\t[È÷½ºÅä±×·¥ v1.0]");
+        // íˆìŠ¤í† ê·¸ë¨ v1.0 ì¶œë ¥
+        puts("\t[íˆìŠ¤í† ê·¸ë¨ v1.0]");
         for (int j = 0; j < 10; j++)
         {
             printf("%5d | ", j);
@@ -59,8 +58,8 @@ int main(void)
         }
 
         puts("");
-        // È÷½ºÅä±×·¥ v2.0 Ãâ·Â
-        puts("\t[È÷½ºÅä±×·¥ v2.0]");
+        // íˆìŠ¤í† ê·¸ë¨ v2.0 ì¶œë ¥
+        puts("\t[íˆìŠ¤í† ê·¸ë¨ v2.0]");
         for (int j = max + 2; j > 0; j--)
         {
             printf("%5d | ", j);
@@ -79,8 +78,8 @@ int main(void)
         printf("         0  1  2  3  4  5  6  7  8  9  \n");
 
         puts("");
-        // È÷½ºÅä±×·¥ v3.0 Ãâ·Â
-        puts("\t[È÷½ºÅä±×·¥ v3.0]");
+        // íˆìŠ¤í† ê·¸ë¨ v3.0 ì¶œë ¥
+        puts("\t[íˆìŠ¤í† ê·¸ë¨ v3.0]");
         for (int j = max + 1; j > 0; j--)
         {
             if (j % 5 == 0)
@@ -99,14 +98,14 @@ int main(void)
         printf("      +-------------------------------\n");
         printf("         0  1  2  3  4  5  6  7  8  9  \n");
 
-        // È÷½ºÅä±×·¥ ºñÀ² °è»ê
+        // íˆìŠ¤í† ê·¸ë¨ ë¹„ìœ¨ ê³„ì‚°
         double histo_ratio[10] = { 0 };
         for (int i = 0; i < 10; i++)
         {
             histo_ratio[i] = histo[i] / (double)size;
         }
 
-        // È÷½ºÅä±×·¥ ºñÀ² ÃÖ´ñ°ª °è»ê
+        // íˆìŠ¤í† ê·¸ë¨ ë¹„ìœ¨ ìµœëŒ“ê°’ ê³„ì‚°
         max_ratio = histo_ratio[0];
         for (int i = 0; i < 10; i++)
         {
@@ -115,8 +114,8 @@ int main(void)
         }
 
         puts("");
-        // È÷½ºÅä±×·¥ v4.0 Ãâ·Â
-        puts("\t[È÷½ºÅä±×·¥ v4.0]");
+        // íˆìŠ¤í† ê·¸ë¨ v4.0 ì¶œë ¥
+        puts("\t[íˆìŠ¤í† ê·¸ë¨ v4.0]");
         for (double j = 1; j > 0; j -= 0.02)
         {
             if (max_ratio < j - 0.02)
